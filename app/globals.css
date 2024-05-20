@@ -10,7 +10,7 @@
 
 body {
   font-family: 'Basis Grotesque Pro', sans-serif;
-  background-color: #f9f9f9;
+  background-color: #333;
 }
 
 img {
@@ -81,4 +81,37 @@ footer {
   justify-content: space-between;
   align-items: center;
   z-index: 2;
+}
+
+.items {
+  position: fixed;
+  width: 30%;
+  height: 100vh;
+  padding: 0 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2;
+}
+
+.item {
+  width: max-content;
+  padding: 0.25em 0;
+  cursor: pointer;
+}
+
+.item p {
+  color: #fff;
+  padding: 6px 12px;
+  font-weight: lighter;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 40px;
+  backdrop-filter: blur(20px);
+  transition: 0.3s;
+}
+
+.item:hover p {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
