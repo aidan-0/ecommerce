@@ -1,4 +1,5 @@
 import Header from "@/components/ui/Header";
+import Image from "next/image";
 import React from "react";
 
 
@@ -22,7 +23,9 @@ export default function Home() {
 
 
 
-      <div className="preview-bg"></div>
+      <div className="preview-bg">
+        <Image src="/images/landscape/red-landscape-siyan-peng-0j19szbmQO4-unsplash.jpeg" alt="Preview" layout="fill" objectFit="cover" />
+      </div>
     </main>
     
   );
