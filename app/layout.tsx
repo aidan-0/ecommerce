@@ -5,7 +5,7 @@ import "./globals.css";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ecommerve Store",
+  title: "Ecommerce Store",
   description: "A Beautiful Ecommerce store",
 };
 
