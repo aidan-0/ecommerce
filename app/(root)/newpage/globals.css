@@ -1,3 +1,5 @@
+/*
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +12,6 @@
 
 body {
   font-family: 'Basis Grotesque Pro', sans-serif;
-  /* background-color: #333; */
 }
 
 img {
@@ -53,7 +54,6 @@ nav > div {
   backdrop-filter: blur(20px);
   padding: 6px 12px;
 }
-
 
 .logo {
   display: flex;
@@ -116,15 +116,6 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-
-.preview {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  color: #fff;
-}
-
 .preview-bg {
   position: fixed;
   width: 100vw;
@@ -132,18 +123,24 @@ footer {
   z-index: 1;
   color: #fff;
 }
-.preview-title h1 {
-  font-weight: lighter;
-  font-size: 80px;
+
+.preview-fg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  color: #fff;
+  opacity: 0;
 }
 
-.preview-tags p, .preview-description p {
-  font-size: 14px;
-  line-height: 120%;
+.preview-fg .preview-title,
+.preview-fg .preview-photographer,
+.preview-fg .preview-description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s, transform 1s;
 }
 
-
-/* Variant 1 */
 .preview.variant-1 .preview-img {
   position: absolute;
   bottom: 0%;
@@ -160,7 +157,7 @@ footer {
   left: 25%;
 }
 
-.preview.variant-1 .preview-tags {
+.preview.variant-1 .preview-photographer {
   position: absolute;
   bottom: 25%;
   right: 40%;
@@ -173,71 +170,6 @@ footer {
   top: 25%;
 }
 
-
-/* Variant 1 */
-.preview.variant-1 .preview-img {
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.preview.variant-1 .preview-title {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
-
-.preview.variant-1 .preview-tags {
-  position: absolute;
-  bottom: 25%;
-  right: 40%;
-}
-
-.preview.variant-1 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-
-/* Variant 1 */
-.preview.variant-1 .preview-img {
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.preview.variant-1 .preview-title {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
-
-.preview.variant-1 .preview-tags {
-  position: absolute;
-  bottom: 25%;
-  right: 40%;
-}
-
-.preview.variant-1 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-
-
-/* Variant 1 */
 .preview.variant-2 .preview-img {
   position: absolute;
   top: 10%;
@@ -254,12 +186,11 @@ footer {
   left: 50%;
 }
 
-.preview.variant-2 .preview-tags {
+.preview.variant-2 .preview-photographer {
   position: absolute;
   top: 25%;
   left: 25%;
 }
-
 
 .preview.variant-2 .preview-description {
   width: 250px;
@@ -269,8 +200,6 @@ footer {
 }
 
 
-
-/* Variant 3 */
 .preview.variant-3 .preview-img {
   position: absolute;
   bottom: 10%;
@@ -287,7 +216,7 @@ footer {
   right: 15%;
 }
 
-.preview.variant-3 .preview-tags {
+.preview.variant-3 .preview-photographer {
   position: absolute;
   bottom: 20%;
   right: 30%;
@@ -299,4 +228,4 @@ footer {
   left: 20%;
   top: 15%;
 }
-
+*/

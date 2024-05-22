@@ -1,17 +1,9 @@
-"use client";
-
-// TODO: 
-// Refactor to use Blue, Dark, Green, Red, White as item names and on hover display a random background image from the respective folder
-// Make sure that on hover of new images the old image is cleaned up
-// From the selected displayed landscape image, display 2-3 images from the corresponding portrait folder, alongside their respective titles, photographer, and descriptions
-// Make sure that on hover the old images are cleaned up
-// Animate the image load-ins with gsap
-
+"use client"
 
 import Image from "next/image";
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useState, useEffect } from "react";
+import { backgrounds, previews, mapClasses } from "../../components/data";
 import gsap from "gsap";
-import { mapClasses, previews } from "../../components/data";
 
 type ClipPathVariants = Record<string, string>;
 
@@ -33,21 +25,27 @@ const defaultClipPaths: ClipPathVariants = {
   "variant-3": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 };
 
+const activeClipPaths: ClipPathVariants = {
+  "variant-1": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  "variant-2": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  "variant-3": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+};
+
 const variantTransforms: VariantTransforms = {
   "variant-1": {
-    title: { x: 75, opacity: 0 },
-    tags: { y: -75, opacity: 0 },
-    description: { x: -75, opacity: 0 },
+    title: { y: -20 },
+    tags: { x: -20 },
+    description: { x: 20 },
   },
   "variant-2": {
-    title: { x: -75, opacity: 0 },
-    tags: { y: -75, opacity: 0 },
-    description: { y: 75, opacity: 0 },
+    title: { y: -20 },
+    tags: { x: -20 },
+    description: { x: 20 },
   },
   "variant-3": {
-    title: { x: 75, opacity: 0 },
-    tags: { y: 75, opacity: 0 },
-    description: { x: 75, opacity: 0 },
+    title: { y: -20 },
+    tags: { x: -20 },
+    description: { x: 20 },
   },
 };
 
@@ -60,6 +58,15 @@ const getDefaultClipPath = (previewElement: HTMLElement): string => {
   return "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)";
 };
 
+const getActiveClipPath = (previewElement: HTMLElement): string => {
+  for (const variant in activeClipPaths) {
+    if (previewElement.classList.contains(variant)) {
+      return activeClipPaths[variant];
+    }
+  }
+  return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+};
+
 const applyVariantStyles = (previewElement: HTMLElement, reset = false): void => {
   const variant = previewElement.className.split(" ").find((className) => className.startsWith("variant-"));
   if (variant && variantTransforms[variant]) {
@@ -69,153 +76,108 @@ const applyVariantStyles = (previewElement: HTMLElement, reset = false): void =>
         if (reset) {
           gsap.to(element, { x: 0, y: 0, opacity: 1, duration: 0.5 });
         } else {
-          gsap.set(element, transform);
+          gsap.to(element, { ...transform, duration: 0.5 });
         }
       }
     });
   }
 };
 
-const changeBg = (newImgSrc: string): void => {
-  const previewBg = document.querySelector(".preview-bg") as HTMLElement;
-  const newImg = document.createElement("img");
-  newImg.src = newImgSrc;
-  newImg.style.position = "absolute";
-  newImg.style.top = "0";
-  newImg.style.left = "0";
-  newImg.style.width = "100%";
-  newImg.style.height = "100%";
-  newImg.style.objectFit = "cover";
-  newImg.style.opacity = "0";
+const Home = () => {
+  const [bgImage, setBgImage] = useState("/images/backgrounds/blue/1.jpeg");
+  const [previewData, setPreviewData] = useState({
+    img: "",
+    title: "",
+    photographer: "",
+    description: "",
+    variant: "",
+  });
 
-  console.log(previewBg);
+  const handleHover = (color: string, index: number) => {
+    const colorImages = backgrounds.filter((bg) => bg.img.includes(color));
+    const randomImage = colorImages[Math.floor(Math.random() * colorImages.length)];
+    setBgImage(randomImage.img);
 
-  previewBg.appendChild(newImg);
-  console.log(newImg);  
-  console.log(previewBg);
-
-
-  gsap.to(newImg, { opacity: 1, duration: 0.5 });
-
-  if (previewBg.children.length > 1) {
-    const oldImg = previewBg.children[0] as HTMLElement;
-    gsap.to(oldImg, {
-      opacity: 0,
-      duration: 0.5,
-      onComplete: () => {
-        previewBg.removeChild(oldImg);
-      },
+    const preview = previews.find((preview) => preview.img.includes(color));
+    setPreviewData({
+      img: preview ? preview.img : "",
+      title: preview ? preview.title : "",
+      photographer: preview ? preview.photographer : "",
+      description: preview ? preview.description : "",
+      variant: mapClasses[index],
     });
-  }
-};
 
-const Home: React.FC = () => {
-  const [activePreview, setActivePreview] = useState<HTMLElement | null>(null);
-  const [isMouseOverItem, setIsMouseOverItem] = useState<boolean>(false);
-
-  const handleMouseEnter = useCallback((index: number) => {
-    setIsMouseOverItem(true);
-    const newBg = `/images/landscape/${index + 1}.jpeg`;
-    changeBg(newBg);
-
-    const newActivePreview = document.querySelector(`.preview-${index + 1}`) as HTMLElement;
-    if (activePreview && activePreview !== newActivePreview) {
-      const previousActivePreviewImg = activePreview.querySelector(".preview-img") as HTMLElement;
-      const previousDefaultClipPath = getDefaultClipPath(activePreview);
-      gsap.to(previousActivePreviewImg, {
-        clipPath: previousDefaultClipPath,
-        duration: 0.75,
-        ease: "power3.out",
+    const previewElement = document.querySelector(`.preview.${mapClasses[index]}`) as HTMLElement;
+    if (previewElement) {
+      gsap.to(previewElement.querySelector('.preview-img'), {
+        clipPath: getActiveClipPath(previewElement),
+        duration: 0.5,
       });
+      applyVariantStyles(previewElement);
     }
+  };
 
-    const elementsToAnimate = ["title", "tags", "description"];
-    elementsToAnimate.forEach((el) => {
-      const element = newActivePreview.querySelector(`.preview-${el}`) as HTMLElement;
-      if (element) {
-        gsap.to(element, { x: 0, y: 0, opacity: 1, duration: 0.5 });
-      }
-    });
-
-    const activePreviewImg = activePreview?.querySelector(".preview-img") as HTMLElement;
-    gsap.to(activePreviewImg, {
-      clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      duration: 1,
-      ease: "power3.out",
-    });
-
-    setActivePreview(newActivePreview);
-  }, [activePreview]);
-
-  const handleMouseLeave = useCallback(() => {
-    setIsMouseOverItem(false);
-    if (activePreview) {
-      applyVariantStyles(activePreview, true);
-
-      setTimeout(() => {
-        if (!isMouseOverItem) {
-          changeBg("/images/landscape/9.jpeg");
-          if (activePreview) {
-            gsap.to(activePreview, { opacity: 0, duration: 0.1 });
-            const defaultPreview = document.querySelector(".preview.default") as HTMLElement;
-            gsap.to(defaultPreview, { opacity: 1, duration: 0.1 });
-            setActivePreview(defaultPreview);
-
-            const activePreviewImg = activePreview.querySelector(".preview-img") as HTMLElement;
-            const defaultClipPath = getDefaultClipPath(activePreview);
-            gsap.to(activePreviewImg, {
-              clipPath: defaultClipPath,
-              duration: 1,
-              ease: "power3.out",
-            });
-          }
-        }
-      }, 10);
+  const handleMouseLeave = () => {
+    const previewElement = document.querySelector('.preview') as HTMLElement;
+    if (previewElement) {
+      gsap.to(previewElement.querySelector('.preview-img'), {
+        clipPath: getDefaultClipPath(previewElement),
+        duration: 0.5,
+      });
+      applyVariantStyles(previewElement, true);
     }
-  }, [activePreview, isMouseOverItem]);
+  };
 
   useEffect(() => {
-    const container = document.querySelector(".container") as HTMLElement;
-
-    previews.forEach((preview, index) => {
-      const previewElement = document.createElement("div");
-      previewElement.className = `preview ${mapClasses[index]} preview-${index + 1}`;
-
-      previewElement.innerHTML = `
-        <div class="preview-img"><img src="${preview.img}" alt="" /></div>
-        <div class="preview-title"><h1>${preview.title}</h1></div>
-        <div class="preview-tags"><p>${preview.tags}</p></div>
-        <div class="preview-description"><p>${preview.description}</p></div>
-      `;
-
-      container.appendChild(previewElement);
-      applyVariantStyles(previewElement);
+    const items = document.querySelectorAll('.item');
+    items.forEach(item => {
+      item.addEventListener('mouseleave', handleMouseLeave);
     });
-
-    const items = document.querySelectorAll(".item");
-
-    items.forEach((item, index) => {
-      item.addEventListener("mouseenter", () => handleMouseEnter(index));
-      item.addEventListener("mouseleave", handleMouseLeave);
-    });
-  }, [handleMouseEnter, handleMouseLeave]);
+    return () => {
+      items.forEach(item => {
+        item.removeEventListener('mouseleave', handleMouseLeave);
+      });
+    };
+  }, []);
 
   return (
-    <main>
+    <main className="h-screen w-screen">
       <div className="container">
         <div className="items">
-          {Array.from({ length: 10 }, (_, i) => (
-            <div className="item" key={i}><p>Item name</p></div>
+          {["blue", "dark", "green", "red", "white"].map((color, i) => (
+            <div
+              className="item"
+              key={i}
+              onMouseEnter={() => handleHover(color, i)}
+            >
+              <p>{color.charAt(0).toUpperCase() + color.slice(1)}</p>
+            </div>
           ))}
         </div>
         <div className="preview-bg absolute">
-          <img
-            src="/images/landscape/9.jpeg"
-            alt="Preview"
-            // fill={true}
-            // objectFit="cover"
-          />
+          <Image src={bgImage} alt="Preview" fill={true} object-fit="cover" />
         </div>
+        {previewData.img && (
+          <div className={`preview ${previewData.variant}`}>
+            <div className="preview-img">
+              <Image
+                src={previewData.img}
+                alt="Foreground"
+                height={400}
+                width={400}
+              />
+            </div>
+            <div className="preview-title">
+              <h1>{previewData.title}</h1>
+            </div>
+            <div className="preview-tags">
+              <p>{previewData.photographer}</p>
+            </div>
+            <div className="preview-description">
+              <p>{previewData.description}</p>
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

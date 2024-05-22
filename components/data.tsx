@@ -13,78 +13,218 @@ export const mapClasses = [
 
 
 
+export const backgrounds = [
+  {
+      img: "/images/backgrounds/blue/1.jpeg",
+      title: "Background Blue 1",
+      photographer: "Photographer Name",
+      description: "Description for Blue 1.",
+  },
+  {
+      img: "/images/backgrounds/blue/2.jpeg",
+      title: "Background Blue 2",
+      photographer: "Photographer Name",
+      description: "Description for Blue 2.",
+  },
+  {
+      img: "/images/backgrounds/blue/3.jpeg",
+      title: "Background Blue 3",
+      photographer: "Photographer Name",
+      description: "Description for Blue 3.",
+  },
+  {
+      img: "/images/backgrounds/dark/1.jpeg",
+      title: "Background Dark 1",
+      photographer: "Photographer Name",
+      description: "Description for Dark 1.",
+  },
+  {
+      img: "/images/backgrounds/dark/2.jpeg",
+      title: "Background Dark 2",
+      photographer: "Photographer Name",
+      description: "Description for Dark 2.",
+  },
+  {
+      img: "/images/backgrounds/dark/3.jpeg",
+      title: "Background Dark 3",
+      photographer: "Photographer Name",
+      description: "Description for Dark 3.",
+  },
+  {
+      img: "/images/backgrounds/green/1.jpeg",
+      title: "Background Green 1",
+      photographer: "Photographer Name",
+      description: "Description for Green 1.",
+  },
+  {
+      img: "/images/backgrounds/green/2.jpeg",
+      title: "Background Green 2",
+      photographer: "Photographer Name",
+      description: "Description for Green 2.",
+  },
+  {
+      img: "/images/backgrounds/green/3.jpeg",
+      title: "Background Green 3",
+      photographer: "Photographer Name",
+      description: "Description for Green 3.",
+  },
+  {
+      img: "/images/backgrounds/red/1.jpeg",
+      title: "Background Red 1",
+      photographer: "Photographer Name",
+      description: "Description for Red 1.",
+  },
+  {
+      img: "/images/backgrounds/red/2.jpeg",
+      title: "Background Red 2",
+      photographer: "Photographer Name",
+      description: "Description for Red 2.",
+  },
+  {
+      img: "/images/backgrounds/red/3.jpeg",
+      title: "Background Red 3",
+      photographer: "Photographer Name",
+      description: "Description for Red 3.",
+  },
+  {
+      img: "/images/backgrounds/white/1.jpeg",
+      title: "Background White 1",
+      photographer: "Photographer Name",
+      description: "Description for White 1.",
+  },
+  {
+      img: "/images/backgrounds/white/2.jpeg",
+      title: "Background White 2",
+      photographer: "Photographer Name",
+      description: "Description for White 2.",
+  },
+  {
+      img: "/images/backgrounds/white/3.jpeg",
+      title: "Background White 3",
+      photographer: "Photographer Name",
+      description: "Description for White 3.",
+  },
+  {
+      img: "/images/backgrounds/white/4.jpeg",
+      title: "Background White 4",
+      photographer: "Photographer Name",
+      description: "Description for White 4.",
+  },
+  {
+      img: "/images/backgrounds/white/5.jpeg",
+      title: "Background White 5",
+      photographer: "Photographer Name",
+      description: "Description for White 5.",
+  },
+];
+
 export const previews = [
-    {
-      img: "/images/landscape/1.jpeg",
-      title: "Blue-Green Landscape",
-      tags: "Landscape, Nature",
-      description: "A stunning blue-green landscape with serene nature vibes.",
-    },
-    {
-      img: "/images/landscape/2.jpeg",
-      title: "Blue Landscape",
-      tags: "Landscape, Nature",
-      description: "A calm blue landscape capturing the essence of tranquility.",
-    },
-    {
-      img: "/images/landscape/3.jpeg",
-      title: "Cream Landscape",
-      tags: "Landscape, Home Design",
-      description: "A beautiful cream landscape showcasing modern home design.",
-    },
-    {
-      img: "/images/landscape/4.jpeg",
-      title: "Dark Landscape",
-      tags: "Landscape, Nature",
-      description: "A dark and moody landscape with a touch of mystery.",
-    },
-    {
-      img: "/images/landscape/5.jpeg",
-      title: "Dark Landscape II",
-      tags: "Landscape, Nature",
-      description: "Another dark landscape capturing the enigmatic beauty of nature.",
-    },
-    {
-      img: "/images/landscape/6.jpeg",
-      title: "Green and Orange Landscape",
-      tags: "Landscape, Nature",
-      description: "A vibrant green and orange landscape full of life and energy.",
-    },
-    {
-      img: "/images/landscape/7.jpeg",
-      title: "Red and Blue Landscape",
-      tags: "Landscape, Nature",
-      description: "A contrasting red and blue landscape with dramatic flair.",
-    },
-    {
-      img: "/images/landscape/8.jpeg",
-      title: "Red Landscape",
-      tags: "Landscape, Nature",
-      description: "A captivating red landscape with a striking sunset.",
-    },
-    {
-      img: "/images/landscape/9.jpeg",
-      title: "White and Green Landscape",
-      tags: "Landscape, Nature",
-      description: "A refreshing white and green landscape depicting calmness.",
-    },
-    // {
-    //   img: "/images/landscape/10.jpeg",
-    //   title: "White Landscape",
-    //   tags: "Landscape, Design",
-    //   description: "A pristine white landscape with minimalist design elements.",
-    // },
-    // {
-    //   img: "/images/landscape/11.jpeg",
-    //   title: "White Landscape II",
-    //   tags: "Landscape, Architecture",
-    //   description: "A serene white landscape highlighting architectural beauty.",
-    // },
-    // {
-    //   img: "/images/landscape/12.jpeg",
-    //   title: "White Landscape III",
-    //   tags: "Landscape, Nature",
-    //   description: "Another tranquil white landscape showcasing nature's purity.",
-    // },
-  ];
-  
+  {
+      img: "/images/foregrounds/blue/1.jpeg",
+      title: "Foreground Blue 1",
+      photographer: "Photographer Name",
+      description: "Description for Blue 1.",
+  },
+  {
+      img: "/images/foregrounds/blue/2.jpeg",
+      title: "Foreground Blue 2",
+      photographer: "Photographer Name",
+      description: "Description for Blue 2.",
+  },
+  {
+      img: "/images/foregrounds/blue/3.jpeg",
+      title: "Foreground Blue 3",
+      photographer: "Photographer Name",
+      description: "Description for Blue 3.",
+  },
+  {
+      img: "/images/foregrounds/blue/4.jpeg",
+      title: "Foreground Blue 4",
+      photographer: "Photographer Name",
+      description: "Description for Blue 4.",
+  },
+  {
+      img: "/images/foregrounds/dark/1.jpeg",
+      title: "Foreground Dark 1",
+      photographer: "Photographer Name",
+      description: "Description for Dark 1.",
+  },
+  {
+      img: "/images/foregrounds/dark/2.jpeg",
+      title: "Foreground Dark 2",
+      photographer: "Photographer Name",
+      description: "Description for Dark 2.",
+  },
+  {
+      img: "/images/foregrounds/dark/3.jpeg",
+      title: "Foreground Dark 3",
+      photographer: "Photographer Name",
+      description: "Description for Dark 3.",
+  },
+  {
+      img: "/images/foregrounds/dark/4.jpeg",
+      title: "Foreground Dark 4",
+      photographer: "Photographer Name",
+      description: "Description for Dark 4.",
+  },
+  {
+      img: "/images/foregrounds/green/1.jpeg",
+      title: "Foreground Green 1",
+      photographer: "Photographer Name",
+      description: "Description for Green 1.",
+  },
+  {
+      img: "/images/foregrounds/green/2.jpeg",
+      title: "Foreground Green 2",
+      photographer: "Photographer Name",
+      description: "Description for Green 2.",
+  },
+  {
+      img: "/images/foregrounds/green/3.jpeg",
+      title: "Foreground Green 3",
+      photographer: "Photographer Name",
+      description: "Description for Green 3.",
+  },
+  {
+      img: "/images/foregrounds/red/1.jpeg",
+      title: "Foreground Red 1",
+      photographer: "Photographer Name",
+      description: "Description for Red 1.",
+  },
+  {
+      img: "/images/foregrounds/red/2.jpeg",
+      title: "Foreground Red 2",
+      photographer: "Photographer Name",
+      description: "Description for Red 2.",
+  },
+  {
+      img: "/images/foregrounds/red/3.jpeg",
+      title: "Foreground Red 3",
+      photographer: "Photographer Name",
+      description: "Description for Red 3.",
+  },
+  {
+      img: "/images/foregrounds/white/1.jpeg",
+      title: "Foreground White 1",
+      photographer: "Photographer Name",
+      description: "Description for White 1.",
+  },
+  {
+      img: "/images/foregrounds/white/2.jpeg",
+      title: "Foreground White 2",
+      photographer: "Photographer Name",
+      description: "Description for White 2.",
+  },
+  {
+      img: "/images/foregrounds/white/3.jpeg",
+      title: "Foreground White 3",
+      photographer: "Photographer Name",
+      description: "Description for White 3.",
+  },
+  {
+      img: "/images/foregrounds/white/4.jpeg",
+      title: "Foreground White 4",
+      photographer: "Photographer Name",
+      description: "Description for White 4.",
+  },
+];
