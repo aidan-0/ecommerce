@@ -20,7 +20,7 @@ type VariantTransforms = Record<string, {
 }>;
 
 const defaultClipPaths: ClipPathVariants = {
-  "variant-1": "polygon(0% 100%, 100% 100%, 100% 0%, 0% 100%)",
+  "variant-1": "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
   "variant-2": "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
   "variant-3": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
 };
@@ -55,7 +55,7 @@ const getDefaultClipPath = (previewElement: HTMLElement): string => {
       return defaultClipPaths[variant];
     }
   }
-  return "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)";
+  return "polygon(100% 0%, 0% 0%, 0% 100%, 100% 100%)"; //square
 };
 
 const getActiveClipPath = (previewElement: HTMLElement): string => {
@@ -144,7 +144,6 @@ const Home = () => {
 
   return (
     <main className="h-screen w-screen">
-      <div className="container">
         <div className="items">
           {["blue", "dark", "green", "red", "white"].map((color, i) => (
             <div
@@ -157,7 +156,7 @@ const Home = () => {
           ))}
         </div>
         <div className="preview-bg absolute">
-          <Image src={bgImage} alt="Preview" fill={true} object-fit="cover" />
+          <Image src={bgImage} className="background-image" alt="Preview" fill={true} object-fit="cover" />
         </div>
         {previewData.img && (
           <div className={`preview ${previewData.variant}`}>
@@ -168,6 +167,7 @@ const Home = () => {
                 height={400}
                 width={400}
                 object-fit="cover"
+                className="rounded-lg"
               />
             </div>
             <div className="preview-title">
@@ -181,7 +181,6 @@ const Home = () => {
             </div>
           </div>
         )}
-      </div>
     </main>
   );
 };
