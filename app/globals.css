@@ -133,8 +133,9 @@ footer {
   color: #fff;
 }
 .preview-title h1 {
-  font-weight: lighter;
-  font-size: 80px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  font-size: 6vw;
 }
 
 .preview-tags p, .preview-description p {
@@ -143,6 +144,7 @@ footer {
 }
 
 
+
 /* Variant 1 */
 .preview.variant-1 .preview-img {
   position: absolute;
@@ -150,7 +152,7 @@ footer {
   right: 0%;
   margin: 2em;
   width: 300px;
-  height: 400px;
+  height: auto;
   clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
 }
 
@@ -174,77 +176,14 @@ footer {
 }
 
 
-/* Variant 1 */
-.preview.variant-1 .preview-img {
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.preview.variant-1 .preview-title {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
-
-.preview.variant-1 .preview-tags {
-  position: absolute;
-  bottom: 25%;
-  right: 40%;
-}
-
-.preview.variant-1 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-
-/* Variant 1 */
-.preview.variant-1 .preview-img {
-  position: absolute;
-  bottom: 0%;
-  right: 0%;
-  margin: 2em;
-  width: 300px;
-  height: 400px;
-  clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
-}
-
-.preview.variant-1 .preview-title {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
-
-.preview.variant-1 .preview-tags {
-  position: absolute;
-  bottom: 25%;
-  right: 40%;
-}
-
-.preview.variant-1 .preview-description {
-  width: 250px;
-  position: absolute;
-  right: 25%;
-  top: 25%;
-}
-
-
-
-/* Variant 1 */
+/* Variant 2 */
 .preview.variant-2 .preview-img {
   position: absolute;
   top: 10%;
   right: 5%;
   margin: 2em;
   width: 300px;
-  height: 400px;
+  height: auto;
   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 }
 
@@ -277,7 +216,7 @@ footer {
   left: 15%;
   margin: 2em;
   width: 300px;
-  height: 400px;
+  height: auto;
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
 }
 

@@ -107,14 +107,16 @@ const Home = () => {
       variant: mapClasses[index],
     });
 
-    const previewElement = document.querySelector(`.preview.${mapClasses[index]}`) as HTMLElement;
-    if (previewElement) {
-      gsap.to(previewElement.querySelector('.preview-img'), {
-        clipPath: getActiveClipPath(previewElement),
-        duration: 0.5,
-      });
-      applyVariantStyles(previewElement);
-    }
+    setTimeout(() => {
+      const previewElement = document.querySelector(`.preview.${mapClasses[index]}`) as HTMLElement;
+      if (previewElement) {
+        gsap.to(previewElement.querySelector('.preview-img'), {
+          clipPath: getActiveClipPath(previewElement),
+          duration: 0.5,
+        });
+        applyVariantStyles(previewElement);
+      }
+    }, 10);
   };
 
   const handleMouseLeave = () => {
@@ -165,6 +167,7 @@ const Home = () => {
                 alt="Foreground"
                 height={400}
                 width={400}
+                object-fit="cover"
               />
             </div>
             <div className="preview-title">
@@ -184,3 +187,4 @@ const Home = () => {
 };
 
 export default Home;
+
