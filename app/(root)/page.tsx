@@ -1,9 +1,17 @@
+// TODO:
+// 1. Fade between background changes
+// 2. Update foreground images to randomly select a new image from the same color
+// 3. Tidy and comment code
+// 4. Mobile responsiveness
+
+
 "use client"
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { backgrounds, previews, mapClasses } from "../../components/data";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 type ClipPathVariants = Record<string, string>;
 
@@ -74,7 +82,7 @@ const applyVariantStyles = (previewElement: HTMLElement, reset = false): void =>
       const element = previewElement.querySelector(`.preview-${elementClass}`) as HTMLElement;
       if (element) {
         if (reset) {
-          gsap.to(element, { x: 0, y: 0, opacity: 0, duration: 0.5,});
+          gsap.to(element, { x: 0, y: 0, opacity: 0, duration: 0.4,});
         } else {
           gsap.to(element, { ...transform, duration: 0.5 });
         }
@@ -153,6 +161,25 @@ const Home = () => {
       });
     };
   }, []);
+
+
+
+  useGSAP(() => {
+    gsap.fromTo(".item",{ 
+      x: -150,
+     }, {
+      duration: 1.5,
+      x: 0,
+      ease: "power4.out",
+      stagger: 0.15,
+    });
+    gsap.fromTo(".preview-bg", { opacity: 0 }, {
+      duration: .5,
+      opacity: 0.3,
+      ease: "power4.out",
+    });
+
+  })
 
   return (
     <main className="h-screen w-screen">

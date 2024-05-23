@@ -1,24 +1,35 @@
-import React from 'react'
-import Link from 'next/link'
+"use client"
+
+import React from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const Header = () => {
+
+  useGSAP(() => {
+    gsap.fromTo("nav", {y: -100, opacity: 0}, {
+      duration: 1.5,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+    });
+  })
+
+
   return (
     <header>
-        <nav>
-            <div className="menu-btn">
-                <p>Menu</p>
-            </div>
-            <div className="logo">
-                <Link href="#">
-                    E-Commerce Site
-                </Link>
-            </div>
-            <div className="local-time">
-                <p>Local Time: 12:00 PM</p>
-            </div>
-        </nav>
-    </header>
-  )
-}
+      <nav>
+        <div className="company-name">
+          Merriweather<br></br>Furniture & Bedding
+        </div>
+        <div className="company-slogan">
+          <p>Quality Furniture</p>
+          <p>Quality Living</p>
+        </div>
 
-export default Header
+      </nav>
+    </header>
+  );
+};
+
+export default Header;

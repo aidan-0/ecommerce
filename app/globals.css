@@ -9,7 +9,6 @@
 }
 
 body {
-  font-family: 'Basis Grotesque Pro', sans-serif;
   background: #000;
 }
 
@@ -27,6 +26,10 @@ nav {
   display: flex;
   align-items: center;
   z-index: 2;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(20px);
+  padding: 6px 12px;
+  transform: translateY(-100px);
 }
 
 nav p,
@@ -39,31 +42,28 @@ nav > div {
   flex: 1;
 }
 
-.menu-btn p {
-  width: max-content;
-  background: rgba(255,255,255,0.1);
-  border-radius: 40px;
-  backdrop-filter: blur(20px);
-  padding: 6px 12px;
-}
 
 
-.logo {
+/* Header */
+.company-name,
+.company-slogan {
   display: flex;
-  justify-content: center;
-}
-
-.local-time {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.logo a {
+  justify-content: start;
   text-decoration: none;
   color: #fff;
   font-size: 20px;
   font-weight: 500;
 }
+
+.company-slogan {
+  display: flex;
+  flex-direction: column;
+  /* gap: 0.1em; */
+  justify-content: flex-end;
+  align-items: end;
+}
+
+
 
 footer {
   position: fixed;
@@ -91,6 +91,7 @@ footer {
   width: max-content;
   padding: 0.25em 0;
   cursor: pointer;
+  transform: translateX(-150px);
 }
 
 .item p {
@@ -124,17 +125,18 @@ footer {
   height: 100vh;
   z-index: 1;
   color: #fff;
-  opacity: 0.3;
+  opacity: 0;
 }
 .preview-title h1 {
   font-weight: 300;
-  letter-spacing: 0.05em;
-  font-size: 6vw;
+  letter-spacing: 0.01em;
+  font-size: 5em;
 }
 
 .preview-tags p, .preview-description p {
-  font-size: 14px;
-  line-height: 120%;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.01em;
 }
 
 
@@ -152,7 +154,7 @@ footer {
 
 .preview.variant-1 .preview-title {
   position: absolute;
-  top: 35%;
+  top: 45%;
   left: 25%;
   opacity: 0;
 }
@@ -236,3 +238,17 @@ footer {
   top: 15%;
 }
 
+
+
+
+/* Footer */
+.concept-design {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  transform: translateX(200px);
+}
+
+.collection {
+  transform: translateY(100px);
+}
