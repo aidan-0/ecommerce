@@ -124,7 +124,7 @@ footer {
   height: 100vh;
   z-index: 1;
   color: #fff;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 .preview-title h1 {
   font-weight: 300;
@@ -154,12 +154,14 @@ footer {
   position: absolute;
   top: 35%;
   left: 25%;
+  opacity: 0;
 }
 
 .preview.variant-1 .preview-tags {
   position: absolute;
   bottom: 25%;
   right: 40%;
+  opacity: 0;
 }
 
 .preview.variant-1 .preview-description {
@@ -167,6 +169,7 @@ footer {
   position: absolute;
   right: 25%;
   top: 25%;
+  opacity: 0;
 }
 
 

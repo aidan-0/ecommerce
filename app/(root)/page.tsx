@@ -20,32 +20,32 @@ type VariantTransforms = Record<string, {
 }>;
 
 const defaultClipPaths: ClipPathVariants = {
-  "variant-1": "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)",
-  "variant-2": "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)",
-  "variant-3": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)",
+  "variant-1": "polygon(0 100%, 100% 100%, 100% 100%, 0% 100%)", //bottom line
+  "variant-2": "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", //right line
+  "variant-3": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)", //left line
 };
 
 const activeClipPaths: ClipPathVariants = {
-  "variant-1": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  "variant-2": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-  "variant-3": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+  "variant-1": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", //square
+  "variant-2": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", //square
+  "variant-3": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", //square
 };
 
 const variantTransforms: VariantTransforms = {
   "variant-1": {
-    title: { y: -20 },
-    tags: { x: -20 },
-    description: { x: 20 },
+    title: { y: -30, opacity: 1 },
+    tags: { x: -30, opacity: 1 },
+    description: { x: 30, opacity: 1 },
   },
   "variant-2": {
-    title: { y: -20 },
-    tags: { x: -20 },
-    description: { x: 20 },
+    title: { y: -30, opacity: 1 },
+    tags: { x: -30, opacity: 1 },
+    description: { x: 30, opacity: 1 },
   },
   "variant-3": {
-    title: { y: -20 },
-    tags: { x: -20 },
-    description: { x: 20 },
+    title: { y: -30, opacity: 1 },
+    tags: { x: -30, opacity: 1 },
+    description: { x: 30, opacity: 1 },
   },
 };
 
@@ -64,7 +64,7 @@ const getActiveClipPath = (previewElement: HTMLElement): string => {
       return activeClipPaths[variant];
     }
   }
-  return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)";
+  return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"; //square
 };
 
 const applyVariantStyles = (previewElement: HTMLElement, reset = false): void => {
@@ -74,7 +74,7 @@ const applyVariantStyles = (previewElement: HTMLElement, reset = false): void =>
       const element = previewElement.querySelector(`.preview-${elementClass}`) as HTMLElement;
       if (element) {
         if (reset) {
-          gsap.to(element, { x: 0, y: 0, opacity: 1, duration: 0.5 });
+          gsap.to(element, { x: 0, y: 0, opacity: 0, duration: 0.5,});
         } else {
           gsap.to(element, { ...transform, duration: 0.5 });
         }
@@ -108,6 +108,18 @@ const Home = () => {
     });
 
     setTimeout(() => {
+      // Reset clip paths of all variants
+      mapClasses.forEach((variantClass) => {
+        const previewElement = document.querySelector(`.preview.${variantClass}`) as HTMLElement;
+        if (previewElement) {
+          gsap.set(previewElement.querySelector('.preview-img'), {
+            clipPath: getDefaultClipPath(previewElement),
+          });
+          applyVariantStyles(previewElement, true);
+        }
+      });
+
+      // Apply active clip path and styles to the hovered element
       const previewElement = document.querySelector(`.preview.${mapClasses[index]}`) as HTMLElement;
       if (previewElement) {
         gsap.to(previewElement.querySelector('.preview-img'), {
@@ -144,14 +156,14 @@ const Home = () => {
 
   return (
     <main className="h-screen w-screen">
-        <div className="items">
+        <div className="items gap-2">
           {["blue", "dark", "green", "red", "white"].map((color, i) => (
             <div
               className="item"
               key={i}
               onMouseEnter={() => handleHover(color, i)}
             >
-              <p>{color.charAt(0).toUpperCase() + color.slice(1)}</p>
+              <p className="w-24 text-center">{color.charAt(0).toUpperCase() + color.slice(1)}</p>
             </div>
           ))}
         </div>
@@ -186,4 +198,3 @@ const Home = () => {
 };
 
 export default Home;
-
