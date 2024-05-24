@@ -5,6 +5,8 @@
 // 4. Mobile responsiveness
 
 
+
+
 "use client"
 
 import Image from "next/image";
@@ -92,7 +94,7 @@ const applyVariantStyles = (previewElement: HTMLElement, reset = false): void =>
 };
 
 const Home = () => {
-  const [bgImage, setBgImage] = useState("/images/backgrounds/blue/1.jpeg");
+  const [bgImage, setBgImage] = useState("/images/backgrounds/green/2.jpeg");
   const [previewData, setPreviewData] = useState({
     img: "",
     title: "",
@@ -106,12 +108,13 @@ const Home = () => {
     const randomImage = colorImages[Math.floor(Math.random() * colorImages.length)];
     setBgImage(randomImage.img);
 
-    const preview = previews.find((preview) => preview.img.includes(color));
+    const colorPreviews = previews.filter((preview) => preview.img.includes(color));
+    const randomPreview = colorPreviews[Math.floor(Math.random() * colorPreviews.length)];
     setPreviewData({
-      img: preview ? preview.img : "",
-      title: preview ? preview.title : "",
-      photographer: preview ? preview.photographer : "",
-      description: preview ? preview.description : "",
+      img: randomPreview ? randomPreview.img : "",
+      title: randomPreview ? randomPreview.title : "",
+      photographer: randomPreview ? randomPreview.photographer : "",
+      description: randomPreview ? randomPreview.description : "",
       variant: mapClasses[index],
     });
 
@@ -162,8 +165,6 @@ const Home = () => {
     };
   }, []);
 
-
-
   useGSAP(() => {
     gsap.fromTo(".item",{ 
       x: -150,
@@ -174,16 +175,16 @@ const Home = () => {
       stagger: 0.15,
     });
     gsap.fromTo(".preview-bg", { opacity: 0 }, {
-      duration: .5,
+      duration: 2,
       opacity: 0.3,
       ease: "power4.out",
     });
 
-  })
+  });
 
   return (
     <main className="h-screen w-screen">
-        <div className="items gap-2">
+        <div className="items gap-6">
           {["blue", "dark", "green", "red", "white"].map((color, i) => (
             <div
               className="item"
