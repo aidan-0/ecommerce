@@ -108,16 +108,10 @@ export const previews = [
       description: "A sophisticated corner with a black armchair and monochrome decor, exuding elegance."
   },
   {
-      img: "/images/foregrounds/blue/2.jpeg",
-      title: "Geometric Abstract Art 1",
-      photographer: "Lea L",
-      description: "Abstract art pieces with geometric shapes in neutral colors."
-  },
-  {
       img: "/images/foregrounds/blue/3.jpeg",
       title: "Geometric Abstract Art",
       photographer: "Lea L",
-      description: "A continuation of the geometric abstract art series, showcasing modern design elements."
+      description: "Abstract art pieces with geometric shapes in neutral colors."
   },
   {
       img: "/images/foregrounds/dark/1.jpeg",
@@ -187,20 +181,14 @@ export const previews = [
   },
   {
       img: "/images/foregrounds/white/2.jpeg",
-      title: "Geometric Abstract Art 1",
+      title: "Geometric Abstract Art",
       photographer: "Lea L",
       description: "Abstract art pieces with geometric shapes in neutral colors."
   },
   {
-      img: "/images/foregrounds/white/3.jpeg",
-      title: "Geometric Abstract Art",
-      photographer: "Lea L",
-      description: "A continuation of the geometric abstract art series, showcasing modern design elements."
-  },
-  {
       img: "/images/foregrounds/white/4.jpeg",
-      title: "Serene Bedroom",
-      photographer: "Collov",
-      description: "A calming and minimalist bedroom design featuring natural light and neutral tones."
+      title: "Dining Area with Wooden Table",
+      photographer: "don-kaveen",
+      description: "A bright dining area with a wooden table and matching chairs, illuminated by stylish pendant lights."
   },
 ];
