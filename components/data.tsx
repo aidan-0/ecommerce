@@ -188,7 +188,7 @@ export const previews = [
   {
       img: "/images/foregrounds/white/4.jpeg",
       title: "Dining Area with Wooden Table",
-      photographer: "don-kaveen",
+      photographer: "Don Kaveen",
       description: "A bright dining area with a wooden table and matching chairs, illuminated by stylish pendant lights."
   },
 ];

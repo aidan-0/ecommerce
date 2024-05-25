@@ -25,7 +25,7 @@ type Transform = {
 
 type VariantTransforms = Record<string, {
   title?: Transform;
-  tags?: Transform;
+  photographer?: Transform;
   description?: Transform;
 }>;
 
@@ -44,17 +44,17 @@ const activeClipPaths: ClipPathVariants = {
 const variantTransforms: VariantTransforms = {
   "variant-1": {
     title: { y: -30, opacity: 1 },
-    tags: { x: -30, opacity: 1 },
+    photographer: { x: -30, opacity: 1 },
     description: { x: 30, opacity: 1 },
   },
   "variant-2": {
     title: { y: -30, opacity: 1 },
-    tags: { x: -30, opacity: 1 },
+    photographer: { x: -30, opacity: 1 },
     description: { x: 30, opacity: 1 },
   },
   "variant-3": {
     title: { y: -30, opacity: 1 },
-    tags: { x: -30, opacity: 1 },
+    photographer: { x: -30, opacity: 1 },
     description: { x: 30, opacity: 1 },
   },
 };
@@ -213,7 +213,7 @@ const Home = () => {
             <div className="preview-title">
               <h1>{previewData.title}</h1>
             </div>
-            <div className="preview-tags">
+            <div className="preview-photographer">
               <p>{previewData.photographer}</p>
             </div>
             <div className="preview-description">
