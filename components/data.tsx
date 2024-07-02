@@ -32,12 +32,12 @@ export const backgrounds = [
       photographer: "Spacejoy",
       description: "A chic entryway with stylish furnishings and a welcoming atmosphere."
   },
-  {
-      img: "/images/backgrounds/dark/2.jpeg",
-      title: "Cozy Reading Nook",
-      photographer: "Jason Wang",
-      description: "A cozy corner for reading with a comfortable chair and stylish floor lamp, set against a dark green wall."
-  },
+//   {
+//       img: "/images/backgrounds/dark/2.jpeg",
+//       title: "Cozy Reading Nook",
+//       photographer: "Jason Wang",
+//       description: "A cozy corner for reading with a comfortable chair and stylish floor lamp, set against a dark green wall."
+//   },
   {
       img: "/images/backgrounds/green/1.jpeg",
       title: "Elegant Bedroom Design",
@@ -68,12 +68,12 @@ export const backgrounds = [
       photographer: "Siyan Peng",
       description: "A dining room with elegant lighting and a beautifully set table, perfect for gatherings."
   },
-  {
-      img: "/images/backgrounds/red/3.jpeg",
-      title: "Eclectic Living Room",
-      photographer: "Spacejoy",
-      description: "An eclectic living room with a mix of vibrant colors and artistic decor."
-  },
+//   {
+//       img: "/images/backgrounds/red/3.jpeg",
+//       title: "Eclectic Living Room",
+//       photographer: "Spacejoy",
+//       description: "An eclectic living room with a mix of vibrant colors and artistic decor."
+//   },
   {
       img: "/images/backgrounds/white/1.jpeg",
       title: "Dining Area with Wooden Table",
@@ -92,12 +92,12 @@ export const backgrounds = [
       photographer: "roberto-nickson",
       description: "A luxurious retreat in the desert, featuring natural materials and expansive views."
   },
-  {
-      img: "/images/backgrounds/white/4.jpeg",
-      title: "Modern Living Room",
-      photographer: "R. Architecture",
-      description: "A spacious and modern living room with large windows and stylish decor."
-  },
+//   {
+//       img: "/images/backgrounds/white/4.jpeg",
+//       title: "Modern Living Room",
+//       photographer: "R. Architecture",
+//       description: "A spacious and modern living room with large windows and stylish decor."
+//   },
 ];
 
 export const previews = [
@@ -108,7 +108,7 @@ export const previews = [
       description: "A sophisticated corner with a black armchair and monochrome decor, exuding elegance."
   },
   {
-      img: "/images/foregrounds/blue/3.jpeg",
+      img: "/images/foregrounds/blue/2.jpeg",
       title: "Geometric Abstract Art",
       photographer: "Lea L",
       description: "Abstract art pieces with geometric shapes in neutral colors."
@@ -119,12 +119,12 @@ export const previews = [
       photographer: "Jean Philippe Delberghe",
       description: "A minimalist bathroom design with a sleek, modern aesthetic."
   },
-  {
-      img: "/images/foregrounds/dark/2.jpeg",
-      title: "Intimate Dining Space",
-      photographer: "Igor Starkov",
-      description: "An intimate dining space with soft lighting and a cozy atmosphere."
-  },
+//   {
+//       img: "/images/foregrounds/dark/2.jpeg",
+//       title: "Intimate Dining Space",
+//       photographer: "Igor Starkov",
+//       description: "An intimate dining space with soft lighting and a cozy atmosphere."
+//   },
   {
       img: "/images/foregrounds/dark/3.jpeg",
       title: "Natural Interior Design",
@@ -149,24 +149,24 @@ export const previews = [
       photographer: "Spacejoy",
       description: "A cozy room with green accents and a comfortable seating area, ideal for relaxation."
   },
-  {
-      img: "/images/foregrounds/green/3.jpeg",
-      title: "Modern Pendant Light",
-      photographer: "Chuttersnap",
-      description: "A sleek, modern pendant light with a black finish, perfect for contemporary interiors."
-  },
+//   {
+//       img: "/images/foregrounds/green/3.jpeg",
+//       title: "Modern Pendant Light",
+//       photographer: "Chuttersnap",
+//       description: "A sleek, modern pendant light with a black finish, perfect for contemporary interiors."
+//   },
   {
       img: "/images/foregrounds/red/1.jpeg",
       title: "Sunlit Chair",
       photographer: "Marra",
       description: "A cozy leather chair bathed in warm sunlight, creating a relaxing atmosphere."
   },
-  {
-      img: "/images/foregrounds/red/2.jpeg",
-      title: "Minimalist Bathroom",
-      photographer: "Jean Philippe Delberghe",
-      description: "A minimalist bathroom design with a sleek, modern aesthetic."
-  },
+//   {
+//       img: "/images/foregrounds/red/2.jpeg",
+//       title: "Minimalist Bathroom",
+//       photographer: "Jean Philippe Delberghe",
+//       description: "A minimalist bathroom design with a sleek, modern aesthetic."
+//   },
   {
       img: "/images/foregrounds/red/3.jpeg",
       title: "Modern Pendant Light",
