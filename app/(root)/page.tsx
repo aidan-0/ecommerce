@@ -1,9 +1,7 @@
 // TODO:
 // 1. Fade between background changes
-// 2. Update foreground images to randomly select a new image from the same color
 // 3. Tidy and comment code
-// 4. Mobile responsiveness
-
+// Preload all images
 
 
 
@@ -176,7 +174,7 @@ const Home = () => {
     });
     gsap.fromTo(".preview-bg", { opacity: 0 }, {
       duration: 2,
-      opacity: 0.3,
+      opacity: 0.25,
       ease: "power4.out",
     });
 
