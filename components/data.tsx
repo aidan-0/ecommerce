@@ -185,10 +185,10 @@ export const previews = [
       photographer: "Lea L",
       description: "Abstract art pieces with geometric shapes in neutral colors."
   },
-  {
-      img: "/images/foregrounds/white/4.jpeg",
-      title: "Dining Area with Wooden Table",
-      photographer: "Don Kaveen",
-      description: "A bright dining area with a wooden table and matching chairs, illuminated by stylish pendant lights."
-  },
+//   {
+//       img: "/images/foregrounds/white/4.jpeg",
+//       title: "Dining Area with Wooden Table",
+//       photographer: "Don Kaveen",
+//       description: "A bright dining area with a wooden table and matching chairs, illuminated by stylish pendant lights."
+//   },
 ];
