@@ -91,6 +91,23 @@ const applyVariantStyles = (previewElement: HTMLElement, reset = false): void =>
   }
 };
 
+// Image preloading
+const preloadImages = (imageUrls: string[]): Promise<void[]> => {
+  return Promise.all(
+    imageUrls.map(
+      (url) =>
+        new Promise<void>((resolve, reject) => {
+          const img = document.createElement('img');
+          img.src = url;
+          console.log(img.src)
+          console.log(url)
+          img.onload = () => resolve();
+          img.onerror = () => reject();
+        })
+    )
+  );
+};
+
 const Home = () => {
   const [bgImage, setBgImage] = useState("/images/backgrounds/green/2.jpeg");
   const [previewData, setPreviewData] = useState({
@@ -100,6 +117,20 @@ const Home = () => {
     description: "",
     variant: "",
   });
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const allImages = [
+      ...backgrounds.map((bg) => bg.img),
+      ...previews.map((preview) => preview.img),
+    ];
+
+    preloadImages(allImages).then(() => {
+      setLoading(false);
+    }).catch(() => {
+      setLoading(false);
+    });
+  }, []);
 
   const handleHover = (color: string, index: number) => {
     const colorImages = backgrounds.filter((bg) => bg.img.includes(color));
@@ -179,6 +210,7 @@ const Home = () => {
     });
 
   });
+
 
   return (
     <main className="h-screen w-screen">
