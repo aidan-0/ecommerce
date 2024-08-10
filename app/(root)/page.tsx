@@ -132,7 +132,7 @@ const Home = () => {
     });
   }, []);
 
-  const handleHover = (color: string, index: number) => {
+  const handleClick = (color: string, index: number) => {
     const colorImages = backgrounds.filter((bg) => bg.img.includes(color));
     const randomImage = colorImages[Math.floor(Math.random() * colorImages.length)];
     setBgImage(randomImage.img);
@@ -219,14 +219,14 @@ const Home = () => {
             <div
               className="item"
               key={i}
-              onMouseEnter={() => handleHover(color, i)}
+              onClick={() => handleClick(color, i)}
             >
               <p className="w-24 text-center">{color.charAt(0).toUpperCase() + color.slice(1)}</p>
             </div>
           ))}
         </div>
         <div className="preview-bg absolute">
-          <Image src={bgImage} className="background-image" alt="Preview" fill={true} object-fit="cover" />
+          <Image src={bgImage} className="background-image" alt="Preview" fill={true} priority={true} object-fit="cover" />
         </div>
         {previewData.img && (
           <div className={`preview ${previewData.variant}`}>
@@ -237,6 +237,7 @@ const Home = () => {
                 height={400}
                 width={400}
                 object-fit="cover"
+                priority={true}
                 className="rounded-lg"
               />
             </div>
