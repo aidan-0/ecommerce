@@ -1,7 +1,6 @@
 // TODO:
 // 1. Fade between background changes
-// 3. Tidy and comment code
-// Preload all images
+// 2. Tidy and comment code
 
 
 
@@ -109,7 +108,7 @@ const preloadImages = (imageUrls: string[]): Promise<void[]> => {
 };
 
 const Home = () => {
-  const [bgImage, setBgImage] = useState("/images/backgrounds/green/2.jpeg");
+  const [bgImage, setBgImage] = useState("/images/backgrounds/green/2.webp");
   const [previewData, setPreviewData] = useState({
     img: "",
     title: "",
@@ -236,7 +235,7 @@ const Home = () => {
                 alt="Foreground"
                 height={400}
                 width={400}
-                object-fit="cover"
+                objectFit="cover"
                 priority={true}
                 className="rounded-lg"
               />
