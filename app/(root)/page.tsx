@@ -225,7 +225,7 @@ const Home = () => {
           ))}
         </div>
         <div className="preview-bg absolute">
-          <Image src={bgImage} className="background-image" alt="Preview" fill={true} priority={true} object-fit="cover" />
+          <Image src={bgImage} className="background-image" alt="Preview" fill={true} priority={true} objectFit="cover" unoptimized />
         </div>
         {previewData.img && (
           <div className={`preview ${previewData.variant}`}>
@@ -238,6 +238,7 @@ const Home = () => {
                 objectFit="cover"
                 priority={true}
                 className="rounded-lg"
+                unoptimized
               />
             </div>
             <div className="preview-title">
